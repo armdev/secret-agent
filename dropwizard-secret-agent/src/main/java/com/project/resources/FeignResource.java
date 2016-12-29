@@ -43,4 +43,5 @@ public class FeignResource {
     }
 
     //http://blog.paralleluniverse.co/2014/05/15/modern-java-pt3/
+    // http://howtoprogram.xyz/2016/07/18/java-rest-client-using-netflix-feign/
 }
