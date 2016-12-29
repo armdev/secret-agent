@@ -15,26 +15,26 @@ public class SecretAgent
 
     @Override
     protected void runOneIteration() throws Exception {
-        System.out.println("SECRET AGENT runOneIteration");
+        System.out.println("SECRET AGENT: I am downloading the internet!");
     }
 
     @Override
     protected Scheduler scheduler() {
-        System.out.println("SECRET AGENT scheduler");
-        return Scheduler.newFixedDelaySchedule(1000, 2000, TimeUnit.MILLISECONDS);
+        System.out.println("SECRET AGENT: I am starting again");
+        return Scheduler.newFixedDelaySchedule(2000, 4000, TimeUnit.MILLISECONDS);
     }
 
     @Override
     public void start() throws Exception {
         //logger.info("SECRET AGENT STARTED");
-        System.out.println("SECRET AGENT STARTED");
+        System.out.println("SECRET AGENT: STARTED");
         this.startAsync();
 
     }
 
     @Override
     public void stop() throws Exception {
-        System.out.println("SECRET AGENT STOPPED");
+        System.out.println("SECRET AGENT:  STOPPED");
         this.stopAsync().awaitTerminated();
     }
 
