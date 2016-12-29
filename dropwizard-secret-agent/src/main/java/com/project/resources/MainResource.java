@@ -9,12 +9,10 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import com.project.models.SecretModel;
+import com.project.services.CounterService;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  *
@@ -24,15 +22,15 @@ import java.util.concurrent.atomic.AtomicLong;
 @Produces(MediaType.APPLICATION_JSON)
 public class MainResource {
 
-    private final String message;
-
-    private final AtomicLong counter = new AtomicLong();
-    //http://localhost:9090/secret/message/java
-    //http://localhost:9090/feign
+    private final CounterService counterService;
+    
+    private final String message;     
+    
 
     @Inject
-    public MainResource(@Named("message") String message) {
+    public MainResource(@Named("message") String message, CounterService counterService) {
         this.message = message;
+        this.counterService = counterService;
     }
 
     @Timed // monitor timing of this service with Metrics
@@ -42,7 +40,7 @@ public class MainResource {
         System.out.println("Received message " + name);
         final String value = String.format("SecretService", name.orElse(name.get()));
         Thread.sleep(ThreadLocalRandom.current().nextInt(10, 500));
-        return new SecretModel(counter.incrementAndGet(), value);
+        return new SecretModel(counterService.next(), value);
     }
 
     @GET

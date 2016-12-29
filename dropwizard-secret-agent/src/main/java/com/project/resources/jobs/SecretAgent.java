@@ -5,7 +5,6 @@ import com.google.common.util.concurrent.Service;
 import com.google.inject.Singleton;
 import io.dropwizard.lifecycle.Managed;
 import java.util.concurrent.TimeUnit;
-import lombok.extern.slf4j.Slf4j;
 
 @Singleton
 //@Slf4j
