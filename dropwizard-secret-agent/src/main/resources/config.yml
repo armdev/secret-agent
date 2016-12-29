@@ -1,0 +1,12 @@
+server:
+  applicationContextPath: /
+  applicationConnectors:
+    - type: http
+      port: 9090
+  adminConnectors:
+    - type: http
+      port: 9091
+  registerDefaultExceptionMappers: true  
+
+message: Share your secrets with me!
+  
