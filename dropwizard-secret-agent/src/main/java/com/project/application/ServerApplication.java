@@ -16,6 +16,9 @@ public class ServerApplication extends Application<ServerConfiguration> {
 
     // run from console if you have not NetBeans!!!! java -jar target/secret-agent-service.jar server src/main/resources/config.yml
     // access http://localhost:9090/secret
+    //http://localhost:9090/feign
+    //http://localhost:9090/secret/message/java
+    //metrics http://localhost:9091/metrics?pretty=true
     @Override
     public void initialize(Bootstrap<ServerConfiguration> bootstrap) {
         GuiceBundle<ServerConfiguration> guiceBundle = GuiceBundle.<ServerConfiguration>newBuilder()
