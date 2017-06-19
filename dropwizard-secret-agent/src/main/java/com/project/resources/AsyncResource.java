@@ -16,7 +16,6 @@ import com.project.services.AsyncExecutorService;
  *
  * @author armen
  */
-
 @Path("/async")
 public class AsyncResource {
 
@@ -31,8 +30,8 @@ public class AsyncResource {
             asyncResponse.resume(result);
         });
     }
-    
-    private String calculateTillBillion(){
+
+    private String calculateTillBillion() {
         return "please wait";
     }
     //http://allegro.tech/2014/10/async-rest.html
